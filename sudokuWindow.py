@@ -91,7 +91,10 @@ window.update()
 
 
 
-
+#add button to start
+# try with other boards
+#slow it down?
+#colored numbers?
 
 
 
