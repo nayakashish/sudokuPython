@@ -95,6 +95,8 @@ window.update()
 # try with other boards
 #slow it down?
 #colored numbers?
+#buttons to clear and start program
+
 
 
 
