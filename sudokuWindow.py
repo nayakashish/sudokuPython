@@ -1,8 +1,27 @@
-
 import time
 from tkinter import *
 from turtle import clear
 from sudoku import *
+
+board = [[0, 9, 0, 0, 0, 0, 0, 0, 6],
+         [0, 6, 0, 7, 0, 0, 8, 4, 3],
+         [0, 0, 3, 2, 0, 0, 0, 0, 0],
+         [8, 0, 0, 0, 0, 0, 0, 0, 0],
+         [0, 7, 5, 0, 3, 0, 6, 2, 0],
+         [0, 0, 0, 0, 0, 0, 0, 0, 8],
+         [0, 0, 0, 0, 0, 3, 9, 0, 0],
+         [9, 3, 4, 0, 0, 1, 0, 6, 0],
+         [7, 0, 0, 0, 0, 0, 0, 8, 0]]
+
+#board = [[0, 0, 0, 0, 0, 0, 0, 0, 0],
+ #        [0, 0, 0, 0, 0, 0, 0, 0, 0],
+  #       [0, 0, 0, 0, 0, 0, 0, 0, 0],
+   #      [0, 0, 0, 0, 0, 0, 0, 0, 0],
+    #     [0, 0, 0, 0, 0, 0, 0, 0, 0],
+     #    [0, 0, 0, 0, 0, 0, 0, 0, 0],
+      #   [0, 0, 0, 0, 0, 0, 0, 0, 0],
+       #  [0, 0, 0, 0, 0, 0, 0, 0, 0],
+        # [0, 0, 0, 0, 0, 0, 0, 0, 0]]
 
 
 window = Tk()
@@ -10,7 +29,7 @@ window.title("Sudoku")
 canvas = Canvas(height=430, width=408)
 
 
-window.geometry("500x550")
+window.geometry("500x470")
 
 def bkgBoard(canvas):
         #border
@@ -19,13 +38,11 @@ def bkgBoard(canvas):
         canvas.create_line(3, 25, 408, 25, width=3) #top
         canvas.create_line(408, 25, 408, 430, width=3) # right
 
-
-
         #lines
         x = 48
         y = 70
         for i in range(8):
-                w = 1
+                w = 0.1
                 if i == 2 or i == 5:
                         w = 3
                 canvas.create_line(x, 25, x, 430, width=w)
@@ -34,18 +51,6 @@ def bkgBoard(canvas):
                 y += 45
 
         canvas.pack()
-
-
-
-board = [[0, 0, 0, 0, 2, 0, 0, 0, 0],
-         [0, 0, 0, 0, 0, 0, 0, 0, 0],
-         [0, 0, 0, 0, 0, 0, 0, 0, 0],
-         [0, 1, 0, 0, 0, 0, 0, 0, 0],
-         [0, 0, 0, 0, 0, 0, 0, 0, 0],
-         [0, 0, 0, 0, 0, 0, 0, 0, 0],
-         [0, 0, 0, 0, 0, 0, 0, 0, 0],
-         [0, 0, 0, 0, 0, 0, 0, 0, 0],
-         [0, 0, 0, 0, 0, 0, 0, 3, 0]]
 
 
 def updateWindow(canvas, board):
@@ -61,7 +66,6 @@ def updateWindow(canvas, board):
                         posX += 45
                 posY += 45
         window.update()
-       
 
 def try_solve(board):
     if valid(board) == False:
@@ -83,12 +87,8 @@ def try_solve(board):
 bkgBoard(canvas)
 try_solve(board)
 
-
-updateWindow(canvas, board)
-window.update()
-
-
-
+#updateWindow(canvas, board)
+window.update() 
 
 
 #add button to start
@@ -96,9 +96,6 @@ window.update()
 #slow it down?
 #colored numbers?
 #buttons to clear and start program
-
-
-
 
 
 window.mainloop()
