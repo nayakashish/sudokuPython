@@ -84,12 +84,19 @@ def try_solve(board):
                 return False
     return True   
 
+named_tuple = time.localtime() # get struct_time
+time_string = time.strftime("%H:%M:%S", named_tuple)
+
+print("Start time: " + time_string)
 bkgBoard(canvas)
 try_solve(board)
 
 #updateWindow(canvas, board)
 window.update() 
 
+named_tuple2 = time.localtime() # get struct_time
+time_string2 = time.strftime("%H:%M:%S", named_tuple2)
+print("Endtime: " + time_string2)
 
 #add button to start
 # try with other boards
